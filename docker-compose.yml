@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  istio:
+    image: istio/proxyv2:1.8.3
+    entrypoint: "/usr/local/bin/envoy -c /etc/envoy.yaml -l info --service-cluster proxy"
+    volumes:
+      - ./envoy/envoy.yml:/etc/envoy.yaml
+      - ./target/wasm32-unknown-unknown/release/filter.wasm:/etc/filter.wasm
+    ports:
+      - "18000:80"
+      - "18001:8001"
+
+  echo:
+    image: hashicorp/http-echo
+    command:
+      - '-text="Echo"'
+    ports:
+      - "18080:5678"
