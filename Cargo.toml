@@ -5,7 +5,8 @@ authors = ["Martin Kromkamp <m.kromkamp@gmail.com>"]
 edition = "2018"
 
 [lib]
-name = "filter"
+name = "counter"
+path = "src/counter_filter.rs"
 crate-type = ["cdylib"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

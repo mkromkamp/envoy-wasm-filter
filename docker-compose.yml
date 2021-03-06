@@ -6,7 +6,7 @@ services:
     entrypoint: "/usr/local/bin/envoy -c /etc/envoy.yaml -l info --service-cluster proxy"
     volumes:
       - ./envoy/envoy.yml:/etc/envoy.yaml
-      - ./target/wasm32-unknown-unknown/release/filter.wasm:/etc/filter.wasm
+      - ./target/wasm32-unknown-unknown/release/counter.wasm:/etc/filter.wasm
     ports:
       - "18000:80"
       - "18001:8001"
